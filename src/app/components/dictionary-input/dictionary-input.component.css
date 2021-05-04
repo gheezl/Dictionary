@@ -1,11 +1,13 @@
 #dictionary-input-border {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 #dictionary-input {
     border: none;
-    border-bottom: 2px lightgray solid;
+    border-bottom: 2px #5d6d72 solid;
+    background-color:  	#101c25;
     border-radius: 10px;
     width: 250px;
     padding: 10px;

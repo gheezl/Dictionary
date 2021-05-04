@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class GetDataService {
 
   constructor() { }
+
+  getWordInfo(url:string) {
+    console.log(url)
+  }
 }
