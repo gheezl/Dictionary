@@ -9,7 +9,8 @@ import {GetDataService} from "../../services/get-data.service"
   styleUrls: ['./dictionary-input.component.css']
 })
 export class DictionaryInputComponent implements OnInit {
-  input:string = "" 
+  input:string = ""
+  wordData:object = {}
 
   constructor(private getDataService:GetDataService) { }
 
@@ -19,7 +20,7 @@ export class DictionaryInputComponent implements OnInit {
   // calls the word data on enter
   onEnter() {
     if (this.input.length > 0) {
-      this.getDataService.getWordInfo(this.input)
+      this.getDataService.getWordInfo(`https://wordsapiv1.p.mashape.com/words/${this.input.toLowerCase()}`).subscribe(value => this.wordData = value)
     }
   }
 }
