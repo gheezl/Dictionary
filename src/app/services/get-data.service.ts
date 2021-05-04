@@ -8,9 +8,11 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class GetDataService {
   params:object = {
-    "x-rapidapi-key": "971346fa9fmsh942519ee7e82eb9p1b706ejsn3fd22fc0cd6c",
-    "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-    "useQueryString": true
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-key": "971346fa9fmsh942519ee7e82eb9p1b706ejsn3fd22fc0cd6c",
+      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+    }
   }
 
   constructor(private http:HttpClient) { }
