@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http"
+import {HttpClient, HttpHeaders} from "@angular/common/http"
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -7,18 +7,19 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GetDataService {
-  params:object = {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-key": "971346fa9fmsh942519ee7e82eb9p1b706ejsn3fd22fc0cd6c",
-      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
-    }
-  }
-
+  
+  
   constructor(private http:HttpClient) { }
 
-  getWordInfo(url:string):Observable<object> {
-    console.log(url)
-    return this.http.get<object>(url, this.params)
+  getWordInfo(url:string):Observable<any> {
+    const opts = {
+      headers: new HttpHeaders({
+        "x-rapidapi-key": "971346fa9fmsh942519ee7e82eb9p1b706ejsn3fd22fc0cd6c",
+        "x-rapidapi-host": "twinword-word-graph-dictionary.p.rapidapi.com",
+        "useQueryString": "true"
+      })
+    }
+    console.log(url, opts.headers.get("x-rapidapi-key"))
+    return this.http.get<any>(url, opts)
   }
 }
