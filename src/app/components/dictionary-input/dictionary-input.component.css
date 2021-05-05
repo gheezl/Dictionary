@@ -1,7 +1,14 @@
 #dictionary-input-border {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 30px;
+}
+
+#input-border {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 #dictionary-input {
