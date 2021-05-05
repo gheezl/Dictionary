@@ -10,7 +10,8 @@ import {GetDataService} from "../../services/get-data.service"
 })
 export class DictionaryInputComponent implements OnInit {
   input:string = ""
-  wordExamples:any
+  examples:any
+  themes:any
 
   constructor(private getDataService:GetDataService) { }
 
@@ -21,7 +22,9 @@ export class DictionaryInputComponent implements OnInit {
   onEnter() {
     if (this.input.length > 0) {
       this.getDataService.getExamples(`https://twinword-word-graph-dictionary.p.rapidapi.com/example/?entry=${this.input.toLowerCase()}`)
-      .subscribe(value => this.wordExamples=value.example)
+      .subscribe(value => this.examples=value.example)
+      this.getDataService.getTheme(`https://twinword-word-graph-dictionary.p.rapidapi.com/theme/?entry=${this.input.toLowerCase()}`)
+      .subscribe(value => this.themes = value.theme)
     }
   }
 }

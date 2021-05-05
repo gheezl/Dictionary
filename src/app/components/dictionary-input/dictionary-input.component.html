@@ -2,5 +2,5 @@
     <div id="input-border">
         <input id="dictionary-input" placeholder="Search for a word..." [(ngModel)]="input" (keyup.enter)="onEnter()" />    
     </div>
-    <app-word-data [examples]="wordExamples" [input]="input"></app-word-data>
+    <app-word-data [examples]="examples" [themes]="themes" [input]="input"></app-word-data>
 </div>

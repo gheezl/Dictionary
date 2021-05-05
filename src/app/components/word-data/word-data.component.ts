@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WordDataComponent implements OnInit {
   @Input() examples:any
+  @Input() themes:any
   @Input() input:any
 
   constructor() { }

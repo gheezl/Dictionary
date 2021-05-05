@@ -6,4 +6,10 @@
             <span *ngFor="let example of examples">{{example}}</span>    
         </div>
     </div>
+    <div>
+        <h2>{{themes && "Themes"}}</h2>
+        <div class="list">
+            <span *ngFor="let theme of themes">{{theme}}</span>
+        </div>
+    </div>
 </div>

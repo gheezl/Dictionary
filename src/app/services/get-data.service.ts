@@ -20,4 +20,8 @@ export class GetDataService {
   getExamples(url:string):Observable<any> {
     return this.http.get<any>(url, this.opts)
   }
+
+  getTheme(url:string):Observable<any> {
+    return this.http.get<any>(url, this.opts)
+  }
 }
