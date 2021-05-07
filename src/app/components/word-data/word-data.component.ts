@@ -15,28 +15,31 @@ export class WordDataComponent implements OnInit {
   nouns:string[] = []
   verbs:string[] = []
   nounPlaceholder:number = 0
+  verbPlaceholder:number = 0
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  // finds the sentences with in the string of nouns received from the definition variable
   findNoun() {
     let placeholder:string[] = []
     for (let i:number = this.nounPlaceholder; i<this.definition.noun.length; i++) {
       if (this.definition.noun[i] + this.definition.noun[i + 1] === "(n") {
         for (let j:number = 6; j<this.definition.noun.length; j++) {
-          if (this.definition.noun[i+j] + this.definition.noun[i + j + 1] === "(n") {
-            this.nounPlaceholder = i+j
+          if (this.definition.noun[i + j] + this.definition.noun[i + j + 1] === "(n") {
+            this.nounPlaceholder = i + j
             this.nouns.push(placeholder.join(""))
             this.findNoun()
             return
           }
           else {
             placeholder.push(this.definition.noun[i + j])
-            if (i + j === this.definition.noun.length) {
+            if (i + j === this.definition.noun.length || i + j === this.definition.noun.length - 1) {
               this.nouns.push(placeholder.join(""))
               this.nounPlaceholder = 0
+              return
             }
           }
         }
@@ -44,11 +47,41 @@ export class WordDataComponent implements OnInit {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.nouns, this.nounPlaceholder)
+  // finds the sentences with in the string of verbs received from the definition variable
+  findVerb() {
+    let placeholder:string[] = []
+    for (let i:number = this.verbPlaceholder; i<this.definition.verb.length; i++) {
+      if (this.definition.verb[i] + this.definition.verb[i + 1] === "(v") {
+        for (let j:number = 6; j<this.definition.verb.length; j++) {
+          if (this.definition.verb[i + j] + this.definition.verb[i + j + 1] === "(v") {
+            this.verbPlaceholder = i + j
+            this.verbs.push(placeholder.join(""))
+            this.findVerb()
+            return
+          }
+          else {
+            placeholder.push(this.definition.verb[i + j])
+            if (i + j === this.definition.verb.length || i + j === this.definition.verb.length - 1) {
+              this.verbs.push(placeholder.join(""))
+              this.verbPlaceholder = 0
+              return
+            }
+          }
+        }
+      }
+    }
+  }
 
-    if (this.definition.noun && !this.nouns[0]) {
+  // runs the respective functions on change and resets some values
+  ngOnChanges(changes: SimpleChanges) {
+    this.nouns = []
+    this.verbs = []
+
+    if (this.definition.noun) {
       this.findNoun()
+    }
+    if (this.definition.verb) {
+      this.findVerb()
     }
   }
 }
