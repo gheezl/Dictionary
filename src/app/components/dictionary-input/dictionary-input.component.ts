@@ -10,8 +10,10 @@ import {GetDataService} from "../../services/get-data.service"
 })
 export class DictionaryInputComponent implements OnInit {
   input:string = ""
-  examples:any
-  themes:any
+  examples:any[] = []
+  themes:any[] = []
+  association:any[] = []
+  definition:any[] = []
 
   constructor(private getDataService:GetDataService) { }
 
@@ -21,10 +23,14 @@ export class DictionaryInputComponent implements OnInit {
   // calls the word data on enter
   onEnter() {
     if (this.input.length > 0) {
-      this.getDataService.getExamples(`https://twinword-word-graph-dictionary.p.rapidapi.com/example/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=${this.input.toLowerCase()}`)
+      .subscribe(value => this.definition=value.meaning)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/example/?entry=${this.input.toLowerCase()}`)
       .subscribe(value => this.examples=value.example)
-      this.getDataService.getTheme(`https://twinword-word-graph-dictionary.p.rapidapi.com/theme/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/theme/?entry=${this.input.toLowerCase()}`)
       .subscribe(value => this.themes = value.theme)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=${this.input.toLowerCase()}`)
+      .subscribe(value => this.association = value.assoc_word_ex)
     }
   }
 }

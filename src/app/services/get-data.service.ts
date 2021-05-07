@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http"
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +16,8 @@ export class GetDataService {
 
   constructor(private http:HttpClient) { }
 
-  getExamples(url:string):Observable<any> {
-    return this.http.get<any>(url, this.opts)
-  }
-
-  getTheme(url:string):Observable<any> {
+  // functions to call the API for data
+  getData(url:string):Observable<any> {
     return this.http.get<any>(url, this.opts)
   }
 }

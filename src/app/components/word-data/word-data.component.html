@@ -1,15 +1,27 @@
-<div>
-    <!-- <h2>{{input}}</h2> -->
-    <div>
-        <h2>{{examples && "Examples"}}</h2>
+<div id="word-definition">
+    <h2 id="definition">{{definition.noun && "Definition"}}</h2>
+    <div class="list">
+        <span id="definition-example">{{definition.noun}}</span>
+        <span id="definition-example">{{definition.verb}}</span>
+    </div>
+</div>
+<div id="word-data-border">
+    <div class="word-data">
+        <h2>{{examples[0] && "Examples"}}</h2>
         <div class="list">
             <span *ngFor="let example of examples">{{example}}</span>    
         </div>
     </div>
-    <div>
-        <h2>{{themes && "Themes"}}</h2>
+    <div class="word-data">
+        <h2>{{themes[0] && "Themes"}}</h2>
         <div class="list">
             <span *ngFor="let theme of themes">{{theme}}</span>
+        </div>
+    </div>
+    <div class="word-data">
+        <h2>{{association[0] && "Associated words"}}</h2>
+        <div class="list">
+            <span *ngFor="let a of association">{{a}}</span>
         </div>
     </div>
 </div>

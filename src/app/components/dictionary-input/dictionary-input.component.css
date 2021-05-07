@@ -13,8 +13,7 @@
 
 #dictionary-input {
     border: none;
-    border-bottom: 2px #5d6d72 solid;
-    background-color:  	#101c25;
+    border-bottom: 2px lightgray solid;
     border-radius: 10px;
     width: 250px;
     padding: 10px;
