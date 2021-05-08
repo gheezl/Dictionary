@@ -27,7 +27,7 @@ export class WordDataComponent implements OnInit {
     let placeholder:string[] = []
     for (let i:number = this.nounPlaceholder; i<this.definition.noun.length; i++) {
       if (this.definition.noun[i] + this.definition.noun[i + 1] === "(n") {
-        for (let j:number = 6; j<this.definition.noun.length; j++) {
+        for (let j:number = 6; j<this.definition.noun.length - i; j++) {
           if (this.definition.noun[i + j] + this.definition.noun[i + j + 1] === "(n") {
             this.nounPlaceholder = i + j
             this.nouns.push(placeholder.join(""))
@@ -52,7 +52,7 @@ export class WordDataComponent implements OnInit {
     let placeholder:string[] = []
     for (let i:number = this.verbPlaceholder; i<this.definition.verb.length; i++) {
       if (this.definition.verb[i] + this.definition.verb[i + 1] === "(v") {
-        for (let j:number = 6; j<this.definition.verb.length; j++) {
+        for (let j:number = 6; j<this.definition.verb.length - i; j++) {
           if (this.definition.verb[i + j] + this.definition.verb[i + j + 1] === "(v") {
             this.verbPlaceholder = i + j
             this.verbs.push(placeholder.join(""))

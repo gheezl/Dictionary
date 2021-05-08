@@ -14,6 +14,15 @@ export class DictionaryInputComponent implements OnInit {
   themes:any[] = []
   association:any[] = []
   definition:any[] = []
+  id:object = {
+    'border': 'none',
+    'border-bottom': '2px lightgray solid',
+    'border-radius': '10px',
+    'width': '250px',
+    'padding': '10px',
+    'text-align': 'center',
+    'transition': "3s"
+  }
 
   constructor(private getDataService:GetDataService) { }
 
@@ -31,6 +40,28 @@ export class DictionaryInputComponent implements OnInit {
       .subscribe(value => this.themes = value.theme)
       this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=${this.input.toLowerCase()}`)
       .subscribe(value => this.association = value.assoc_word_ex)
+    }
+  }
+
+  onHover() {
+    this.id = {
+      'border': '2px lightblue solid',
+      'border-radius': '10px',
+      'width': '250px',
+      'padding': '10px',
+      'text-align': 'center'
+    }
+  }
+
+  onExit() {
+    this.id = {
+      'border': 'none',
+      'border-bottom': '2px lightgray solid',
+      'border-radius': '10px',
+      'width': '250px',
+      'padding': '10px',
+      'text-align': 'center',
+      'transition': "3s"
     }
   }
 }

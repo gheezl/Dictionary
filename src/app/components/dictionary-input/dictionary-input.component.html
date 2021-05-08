@@ -1,6 +1,14 @@
 <div id="dictionary-input-border">
     <div id="input-border">
-        <input id="dictionary-input" placeholder="Search for a word..." [(ngModel)]="input" (keyup.enter)="onEnter()" />    
+        <input 
+            (click)="onHover()"
+            (blur)="onExit()"
+            [ngStyle]="id"
+            placeholder="Search for a word..." 
+            [(ngModel)]="input" 
+            (keyup.enter)="onEnter()" 
+        />    
     </div>
     <app-word-data [definition]="definition" [examples]="examples" [themes]="themes" [association]="association" [input]="input"></app-word-data>
 </div>
+<!-- id="dictionary-input" -->
