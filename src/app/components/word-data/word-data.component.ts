@@ -19,11 +19,17 @@ export class WordDataComponent implements OnInit {
   nounPlaceholder:number = 0
   verbPlaceholder:number = 0
   relatedPlaceholder:number = 0
-
-  constructor() { }
-
-  ngOnInit(): void {
+  id:object = {
+    'display': 'grid',
+    'grid-template-columns': 'repeat(auto-fill, minmax(300px, 1fr))',
+    'margin-left': '50px',
+    'margin-right': '50px',
+    'margin-bottom': '50px',
+    'justify-content': 'center'
   }
+
+  constructor() {}
+  ngOnInit(): void {}
 
   // finds the sentences with in the string of nouns received from the definition variable
   findNoun() {
@@ -75,6 +81,7 @@ export class WordDataComponent implements OnInit {
     }
   }
 
+  // finds the related terms with in the string of related terms
   getRelatedTerms() {
     let placeholder:string[] = []
     for (let i:number = this.relatedPlaceholder; i < this.related_terms.length; i++) {
@@ -95,6 +102,10 @@ export class WordDataComponent implements OnInit {
     }
   }
 
+  determineColumns() {
+
+  }
+
   // runs the respective functions on change and resets some values
   ngOnChanges(changes: SimpleChanges) {
     this.nouns = []
@@ -112,5 +123,7 @@ export class WordDataComponent implements OnInit {
     if (this.related_terms) {
       this.getRelatedTerms()
     }
+
+    this.determineColumns()
   }
 }
