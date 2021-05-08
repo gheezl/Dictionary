@@ -21,7 +21,7 @@ export class DictionaryInputComponent implements OnInit {
     'width': '250px',
     'padding': '10px',
     'text-align': 'center',
-    'transition': "3s"
+    'transition': "2s"
   }
 
   constructor(private getDataService:GetDataService) { }
@@ -43,17 +43,21 @@ export class DictionaryInputComponent implements OnInit {
     }
   }
 
-  onHover() {
+  // changes the styling of the input when it is clicked
+  onClick() {
     this.id = {
-      'border': '2px lightblue solid',
+      'border': 'none',
+      'border-bottom': '2px blue solid',
       'border-radius': '10px',
       'width': '250px',
       'padding': '10px',
-      'text-align': 'center'
+      'text-align': 'center',
+      'transition': "2s"
     }
   }
 
-  onExit() {
+  // changes the styling of the input when it is blured
+  onBlur() {
     this.id = {
       'border': 'none',
       'border-bottom': '2px lightgray solid',
@@ -61,7 +65,7 @@ export class DictionaryInputComponent implements OnInit {
       'width': '250px',
       'padding': '10px',
       'text-align': 'center',
-      'transition': "3s"
+      'transition': "2s"
     }
   }
 }

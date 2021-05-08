@@ -11,15 +11,6 @@
     margin-bottom: 50px;
 }
 
-#dictionary-input {
-    border: none;
-    border-bottom: 2px lightgray solid;
-    border-radius: 10px;
-    width: 250px;
-    padding: 10px;
-    text-align: center;
-}
-
 textarea:focus, input:focus{
     outline: none;
 }
