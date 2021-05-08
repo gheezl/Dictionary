@@ -1,33 +1,33 @@
 <div id="word-data-border">
-    <div class="word-data">
+    <div *ngIf="definition.noun || definition.verb" class="word-data">
         <h2 class="data-header">Definitions</h2>
         <div class="list" >
             <span *ngFor="let noun of nouns">Noun: {{noun}}</span>
             <span *ngFor="let verb of verbs">Verb: {{verb}}</span>
-        </div>
+        </div>  
     </div>
-    <div class="word-data">
+    <div *ngIf="examples[0]" class="word-data">
         <h2 class="data-header">Examples</h2>
         <div class="list">
             <span *ngFor="let example of examples">{{example}}</span>    
         </div>
     </div>
-    <div class="word-data">
+    <div *ngIf="themes[0]" class="word-data">
         <h2 class="data-header">Themes</h2>
         <div class="list">
             <span *ngFor="let theme of themes">{{theme}}</span>
         </div>
     </div>
-    <div class="word-data">
+    <div *ngIf="association[0]" class="word-data">
         <h2 class="data-header">Associated words</h2>
         <div class="list">
             <span *ngFor="let a of association">{{a}}</span>
         </div>
     </div>
-    <div class="word-data">
-        <h2 class="data-header">To be finished</h2>
+    <div *ngIf="relatedTerms[0]" class="word-data">
+        <h2 class="data-header">Related Words</h2>
         <div class="list" >
-            
+            <span *ngFor="let term of relatedTerms">{{term}}</span>
         </div>
     </div>
 </div>

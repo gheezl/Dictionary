@@ -7,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   id:object = {
-    'display': 'flex',
-    'justify-content': 'center',
-    'padding': '25px',
-    'border-bottom': '5px solid lightgray',
-    'transition': '2s'
+    'opacity': '1',
+    'transition': '1s',
+    'cursor': 'pointer'
   }
 
   constructor() { }
@@ -21,21 +19,17 @@ export class HeaderComponent implements OnInit {
 
   onHover() {
     this.id = {
-      'display': 'flex',
-      'justify-content': 'center',
-      'padding': '25px',
-      'border-bottom': '5px solid blue',
-      'transition': '2s'
+      'opacity': '0.50',
+      'transition': '1s',
+      'cursor': 'pointer'
     }
   }
 
   onExit() {
     this.id = {
-      'display': 'flex',
-      'justify-content': 'center',
-      'padding': '25px',
-      'border-bottom': '5px solid lightgray',
-      'transition': '2s'
+      'opacity': '1',
+      'transition': '1s',
+      'cursor': 'pointer'
     }
   }
 

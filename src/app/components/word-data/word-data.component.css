@@ -12,10 +12,12 @@
 }
 
 #word-data-border {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
 }
 
 .word-data {
@@ -30,7 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 40px;
     margin-top: 30px;
     width: 100%;
     border-top: 2px lightgray solid;

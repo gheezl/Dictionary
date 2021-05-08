@@ -11,11 +11,14 @@ export class WordDataComponent implements OnInit {
   @Input() themes:any
   @Input() input:any
   @Input() association:any
+  @Input() related_terms:any
 
   nouns:string[] = []
   verbs:string[] = []
+  relatedTerms:string[] = []
   nounPlaceholder:number = 0
   verbPlaceholder:number = 0
+  relatedPlaceholder:number = 0
 
   constructor() { }
 
@@ -72,16 +75,42 @@ export class WordDataComponent implements OnInit {
     }
   }
 
+  getRelatedTerms() {
+    let placeholder:string[] = []
+    for (let i:number = this.relatedPlaceholder; i < this.related_terms.length; i++) {
+      if (this.related_terms[i] == ",") {
+        this.relatedTerms.push(placeholder.join(""))
+        this.relatedPlaceholder = i + 1
+        this.getRelatedTerms()
+        return
+      }
+      else {
+        placeholder.push(this.related_terms[i])
+        if (i == this.related_terms.length - 1) {
+          this.relatedTerms.push(placeholder.join(""))
+          this.relatedPlaceholder = 0
+          return
+        }
+      }  
+    }
+  }
+
   // runs the respective functions on change and resets some values
   ngOnChanges(changes: SimpleChanges) {
     this.nouns = []
     this.verbs = []
+    this.relatedTerms = []
+
+    console.log(this.relatedTerms)
 
     if (this.definition.noun) {
       this.findNoun()
     }
     if (this.definition.verb) {
       this.findVerb()
+    }
+    if (this.related_terms) {
+      this.getRelatedTerms()
     }
   }
 }

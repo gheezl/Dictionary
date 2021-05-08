@@ -9,5 +9,12 @@
             (keyup.enter)="onEnter()" 
         />    
     </div>
-    <app-word-data [definition]="definition" [examples]="examples" [themes]="themes" [association]="association" [input]="input"></app-word-data>
+    <app-word-data 
+        [definition]="definition" 
+        [examples]="examples" 
+        [themes]="themes" 
+        [association]="association" 
+        [related_terms]="related_terms" 
+        [input]="input">
+</app-word-data>    
 </div>

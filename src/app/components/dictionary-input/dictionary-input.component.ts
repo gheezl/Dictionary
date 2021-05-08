@@ -14,6 +14,7 @@ export class DictionaryInputComponent implements OnInit {
   themes:any[] = []
   association:any[] = []
   definition:any[] = []
+  related_terms:string = ""
   id:object = {
     'border': 'none',
     'border-bottom': '2px lightgray solid',
@@ -40,6 +41,8 @@ export class DictionaryInputComponent implements OnInit {
       .subscribe(value => this.themes = value.theme)
       this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=${this.input.toLowerCase()}`)
       .subscribe(value => this.association = value.assoc_word_ex)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/reference/?entry=${this.input.toLowerCase()}`)
+      .subscribe(value => this.related_terms = value.relation.related_terms)
     }
   }
 
