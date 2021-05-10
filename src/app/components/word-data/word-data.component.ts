@@ -19,14 +19,6 @@ export class WordDataComponent implements OnInit {
   nounPlaceholder:number = 0
   verbPlaceholder:number = 0
   relatedPlaceholder:number = 0
-  id:object = {
-    'display': 'grid',
-    'grid-template-columns': 'repeat(auto-fill, minmax(300px, 1fr))',
-    'margin-left': '50px',
-    'margin-right': '50px',
-    'margin-bottom': '50px',
-    'justify-content': 'center'
-  }
 
   constructor() {}
   ngOnInit(): void {}
