@@ -13,10 +13,10 @@
                 <span *ngFor="let example of examples">{{example}}</span>    
             </div>
         </div>
-        <div *ngIf="themes && themes[0]" class="word-data">
-            <h2 class="data-header">Themes</h2>
-            <div class="list">
-                <span *ngFor="let theme of themes">{{theme}}</span>
+        <div *ngIf="relatedTerms && relatedTerms[0]" class="word-data">
+            <h2 class="data-header">Related Words</h2>
+            <div class="list" >
+                <span *ngFor="let term of relatedTerms">{{term}}</span>
             </div>
         </div>
         <div *ngIf="association && association[0]" class="word-data">
@@ -25,10 +25,10 @@
                 <span *ngFor="let a of association">{{a}}</span>
             </div>
         </div>
-        <div *ngIf="relatedTerms && relatedTerms[0]" class="word-data">
-            <h2 class="data-header">Related Words</h2>
-            <div class="list" >
-                <span *ngFor="let term of relatedTerms">{{term}}</span>
+        <div *ngIf="themes && themes[0]" class="word-data">
+            <h2 class="data-header">Themes</h2>
+            <div class="list">
+                <span *ngFor="let theme of themes">{{theme}}</span>
             </div>
         </div>
     </div>    
