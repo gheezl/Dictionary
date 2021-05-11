@@ -42,7 +42,7 @@ export class DictionaryInputComponent implements OnInit {
       this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=${this.input.toLowerCase()}`)
       .subscribe(value => this.association = value.assoc_word_ex)
       this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/reference/?entry=${this.input.toLowerCase()}`)
-      .subscribe(value => this.related_terms = value.relation.related_terms)
+      .subscribe(value => this.related_terms = value.relation && value.relation.related_terms)
     }
   }
 

@@ -94,28 +94,22 @@ export class WordDataComponent implements OnInit {
     }
   }
 
-  determineColumns() {
-
-  }
-
   // runs the respective functions on change and resets some values
   ngOnChanges(changes: SimpleChanges) {
     this.nouns = []
     this.verbs = []
     this.relatedTerms = []
 
-    console.log(this.relatedTerms)
-
-    if (this.definition.noun) {
-      this.findNoun()
-    }
-    if (this.definition.verb) {
-      this.findVerb()
+    if (this.definition) {
+      if (this.definition.noun) {
+        this.findNoun()
+      }
+      if (this.definition.verb) {
+        this.findVerb()
+      }  
     }
     if (this.related_terms) {
       this.getRelatedTerms()
     }
-
-    this.determineColumns()
   }
 }

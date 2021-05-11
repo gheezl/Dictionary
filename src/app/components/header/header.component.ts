@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   id:object = {
     'opacity': '1',
-    'transition': '1s',
     'cursor': 'pointer'
   }
 
@@ -20,7 +19,6 @@ export class HeaderComponent implements OnInit {
   onHover() {
     this.id = {
       'opacity': '0.50',
-      'transition': '1s',
       'cursor': 'pointer'
     }
   }
@@ -28,7 +26,6 @@ export class HeaderComponent implements OnInit {
   onExit() {
     this.id = {
       'opacity': '1',
-      'transition': '1s',
       'cursor': 'pointer'
     }
   }
