@@ -33,15 +33,15 @@ export class DictionaryInputComponent implements OnInit {
   // calls the word data on enter
   onEnter() {
     if (this.input.length > 0) {
-      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/definition/?entry=${this.input.toLowerCase().trim()}`)
       .subscribe(value => this.definition=value.meaning)
-      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/example/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/example/?entry=${this.input.toLowerCase().trim()}`)
       .subscribe(value => this.examples=value.example)
-      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/theme/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/theme/?entry=${this.input.toLowerCase().trim()}`)
       .subscribe(value => this.themes = value.theme)
-      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/association/?entry=${this.input.toLowerCase().trim()}`)
       .subscribe(value => this.association = value.assoc_word_ex)
-      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/reference/?entry=${this.input.toLowerCase()}`)
+      this.getDataService.getData(`https://twinword-word-graph-dictionary.p.rapidapi.com/reference/?entry=${this.input.toLowerCase().trim()}`)
       .subscribe(value => this.related_terms = value.relation && value.relation.related_terms)
     }
   }
